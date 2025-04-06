@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Ônibus RJ em Tempo Real</title>
+</head>
+<body>
+  <h1>🚍 Localização dos Ônibus RJ</h1>
+  <button onclick="carregarDados()">Carregar Dados</button>
+  <pre id="saida"></pre>
+
+  <script>
+    async function carregarDados() {
+      const response = await fetch("https://onibus-rj-api.onrender.com/onibus_tratado");
+      const dados = await response.json();
+      document.getElementById("saida").textContent = JSON.stringify(dados, null, 2);
+    }
+  </script>
+</body>
+</html>
